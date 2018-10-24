@@ -3,14 +3,10 @@ package com.hku.msc.fragment;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -47,7 +43,7 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
     private void initToolbar(View view) {
         Log.i(TAG, "initToolbar");
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.home_toolbar);
-        toolbar.setTitle("Home");
+        toolbar.setTitle("home");
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         // 给左上角图标加一个可以返回的图标

@@ -1,7 +1,6 @@
 package com.hku.msc;
 
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,12 +8,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ExpandableListView;
 
-import com.hku.msc.fragment.FragmentAbout;
+import com.hku.msc.fragment.About.FragmentAbout;
+import com.hku.msc.fragment.About.FragmentFaculty;
+import com.hku.msc.fragment.About.FragmentMessage;
 import com.hku.msc.fragment.FragmentHome;
 import com.hku.msc.menu.ExpandableListAdapter;
 import com.hku.msc.menu.MenuModel;
@@ -23,18 +22,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
 
     //页面
     private FragmentHome fragmentHome;
+    //About页
     private FragmentAbout fragmentAbout;
+    private FragmentFaculty fragmentFaculty;
+    private FragmentMessage fragmentMessage;
     //当前页
     private Fragment currentFragment;
 
-
+    //左侧抽屉,expandable list view
     ExpandableListAdapter expandableListAdapter;
     ExpandableListView expandableListView;
     List<MenuModel> headerList = new ArrayList<>();
@@ -65,15 +66,17 @@ public class MainActivity extends AppCompatActivity
 //        toggle.syncState();
 //    }
 
+
     //初始化左侧菜单点击事件
     private void initNavigationView() {
         expandableListView = findViewById(R.id.expandableListView);
+        // 抽屉ExpandableListView 初始化
         prepareMenuData();
         populateExpandableList();
 
         // 抽屉点击事件监听
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//        navigationView.setNavigationItemSelectedListener(this);
     }
 
     //切换fragment
@@ -100,10 +103,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     //     提供给fragment toolbar 返回按钮调用，返回主页面/上级页面
-    public void goBackView(String currentView) {
-        Log.i(TAG, "currentView : " + currentView);
-        switch (currentView) {
-            case "about":
+    public void goBackView(String targetView) {
+        Log.i(TAG, "targetView : " + targetView);
+        switch (targetView) {
+            case "home":
                 switchFragment(fragmentHome);
                 break;
             default:
@@ -147,91 +150,125 @@ public class MainActivity extends AppCompatActivity
 //        return super.onOptionsItemSelected(item);
 //    }
 
-    // 左侧抽屉按钮点击事件
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        Log.i(TAG, "onNavigationItemSelected MenuItem : " + item.getTitle());
+    // 左侧抽屉按钮点击事件:NavigationItem---改用ExpandableListView
+//    @SuppressWarnings("StatementWithEmptyBody")
+//    @Override
+//    public boolean onNavigationItemSelected(MenuItem item) {
+//        Log.i(TAG, "onNavigationItemSelected MenuItem : " + item.getTitle());
+//
+//        // Handle navigation view item clicks here.
+//        int id = item.getItemId();
+////        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//
+//        if (id == R.id.nav_home) {
+//            if (fragmentHome == null) {
+//                fragmentHome = new FragmentHome();
+//            }
+////            toolbar.setTitle("Home");
+//            switchFragment(fragmentHome);
+//
+//        } else if (id == R.id.nav_about) {
+//            if (fragmentAbout == null) {
+//                fragmentAbout = new FragmentAbout();
+//            }
+//            switchFragment(fragmentAbout);
+//
+//        } else if (id == R.id.nav_curriculum) {
+//
+//        } else if (id == R.id.nav_admission) {
+//
+//        } else if (id == R.id.nav_graduate) {
+//
+//        } else if (id == R.id.nav_news) {
+//
+//        } else if (id == R.id.nav_student) {
+//
+//        }
+////        item.setCheckable(true);
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_layout);
+//        drawer.closeDrawer(GravityCompat.START);
+//        return true;
+//    }
 
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        if (id == R.id.nav_home) {
-            if (fragmentHome == null) {
-                fragmentHome = new FragmentHome();
-            }
-//            toolbar.setTitle("Home");
-            switchFragment(fragmentHome);
-
-        } else if (id == R.id.nav_about) {
-            if (fragmentAbout == null) {
-                fragmentAbout = new FragmentAbout();
-            }
-            switchFragment(fragmentAbout);
-
-        } else if (id == R.id.nav_curriculum) {
-
-        } else if (id == R.id.nav_admission) {
-
-        } else if (id == R.id.nav_graduate) {
-
-        } else if (id == R.id.nav_news) {
-
-        } else if (id == R.id.nav_student) {
-
-        }
-//        item.setCheckable(true);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
+    // 初始化左侧抽屉按钮数据
     // 参考 : https://www.journaldev.com/19375/android-expandablelistview-navigationview
-    // https://stackoverflow.com/questions/32419446/adding-expandablelistview-to-navigationview/32664433#32664433
-    // https://www.androidhive.info/2013/07/android-expandable-list-view-tutorial/
+    // https://www.jianshu.com/p/05df9c17a1d8
     private void prepareMenuData() {
 
-        MenuModel menuModel = new MenuModel("Android WebView Tutorial", true, false, "https://www.journaldev.com/9333/android-webview-example-tutorial");
-        //Menu of Android Tutorial. No sub menus
+        // Menu of Home. No sub menus
+        MenuModel menuModel = new MenuModel("home", true, false);
         headerList.add(menuModel);
 
-        if (!menuModel.hasChildren) {
-            childList.put(menuModel, null);
-        }
-
-        menuModel = new MenuModel("Java Tutorials", true, true, ""); //Menu of Java Tutorials
-        headerList.add(menuModel);
         List<MenuModel> childModelsList = new ArrayList<>();
-        MenuModel childModel = new MenuModel("Core Java Tutorial", false, false, "https://www.journaldev.com/7153/core-java-tutorial");
-        childModelsList.add(childModel);
-
-        childModel = new MenuModel("Java FileInputStream", false, false, "https://www.journaldev.com/19187/java-fileinputstream");
-        childModelsList.add(childModel);
-
-        childModel = new MenuModel("Java FileReader", false, false, "https://www.journaldev.com/19115/java-filereader");
-        childModelsList.add(childModel);
-
-
         if (menuModel.hasChildren) {
-            Log.d("API123", "here");
             childList.put(menuModel, childModelsList);
         }
 
-        childModelsList = new ArrayList<>();
-        menuModel = new MenuModel("Python Tutorials", true, true, ""); //Menu of Python Tutorials
+        // Menu of About. 3 sub menus
+        menuModel = new MenuModel("About", true, true);
         headerList.add(menuModel);
-        childModel = new MenuModel("Python AST – Abstract Syntax Tree", false, false, "https://www.journaldev.com/19243/python-ast-abstract-syntax-tree");
-        childModelsList.add(childModel);
 
-        childModel = new MenuModel("Python Fractions", false, false, "https://www.journaldev.com/19226/python-fractions");
-        childModelsList.add(childModel);
+        childModelsList = new ArrayList<>();
+        childModelsList.add(new MenuModel("Faculty", false, false));
+        childModelsList.add(new MenuModel("Message fom Programme Director", false, false));
+        childModelsList.add(new MenuModel("About HKU", false, false));
+        if (menuModel.hasChildren) {
+            childList.put(menuModel, childModelsList);
+        }
 
+        // Menu of Admission. 6 sub menus
+        menuModel = new MenuModel("Admission", true, true);
+        headerList.add(menuModel);
+
+        childModelsList = new ArrayList<>();
+        childModelsList.add(new MenuModel("Admission Requirements", false, false));
+        childModelsList.add(new MenuModel("Application Procedures", false, false));
+        childModelsList.add(new MenuModel("Composition Fees", false, false));
+        childModelsList.add(new MenuModel("Words from Students and Graduates", false, false));
+        childModelsList.add(new MenuModel("Information Sessions", false, false));
+        childModelsList.add(new MenuModel("FAQ", false, false));
+        if (menuModel.hasChildren) {
+            childList.put(menuModel, childModelsList);
+        }
+
+        // Menu of Curriculum. 4 sub menus
+        menuModel = new MenuModel("Curriculum", true, true);
+        headerList.add(menuModel);
+
+        childModelsList = new ArrayList<>();
+        childModelsList.add(new MenuModel("Programme Overview", false, false));
+        childModelsList.add(new MenuModel("Courses", false, false));
+        childModelsList.add(new MenuModel("Duration of Study & Class Schedule", false, false));
+        childModelsList.add(new MenuModel("Regulations and Syllabus", false, false));
+        if (menuModel.hasChildren) {
+            childList.put(menuModel, childModelsList);
+        }
+
+        // Menu of News & Events. no sub menus
+        menuModel = new MenuModel("News & Events", true, false);
+        headerList.add(menuModel);
+
+        childModelsList = new ArrayList<>();
+        if (menuModel.hasChildren) {
+            childList.put(menuModel, childModelsList);
+        }
+
+        // Menu of Student Resources. 4 sub menus
+        menuModel = new MenuModel("Student Resources", true, true);
+        headerList.add(menuModel);
+
+        childModelsList = new ArrayList<>();
+        childModelsList.add(new MenuModel("Learning Environment", false, false));
+        childModelsList.add(new MenuModel("MSc(CompSc) Intranet", false, false));
+        childModelsList.add(new MenuModel("HKU Portal", false, false));
+        childModelsList.add(new MenuModel("Useful Links", false, false));
         if (menuModel.hasChildren) {
             childList.put(menuModel, childModelsList);
         }
     }
 
+
+    // 初始化Expandable 组件
     private void populateExpandableList() {
 
         expandableListAdapter = new ExpandableListAdapter(this, headerList, childList);
@@ -239,31 +276,50 @@ public class MainActivity extends AppCompatActivity
 
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+            public boolean onGroupClick(ExpandableListView parent, View view, int groupPosition, long id) {
+                MenuModel headItem = headerList.get(groupPosition);
+                Log.i(TAG, "onGroupClick : " + headItem.menuName);
 
-                if (headerList.get(groupPosition).isGroup) {
-                    if (!headerList.get(groupPosition).hasChildren) {
-                        WebView webView = findViewById(R.id.webView);
-                        webView.loadUrl(headerList.get(groupPosition).url);
-                        onBackPressed();
+                if (headItem.isGroup) {
+                    if (!headItem.hasChildren) {
+                        switch (headItem.menuName) {
+                            default:
+                                if (fragmentHome == null) {
+                                    fragmentHome = new FragmentHome();
+                                }
+                                switchFragment(fragmentHome);
+                                onBackPressed();
+                        }
                     }
                 }
-
                 return false;
             }
         });
 
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-
+            public boolean onChildClick(ExpandableListView parent, View view, int groupPosition, int childPosition, long id) {
                 if (childList.get(headerList.get(groupPosition)) != null) {
-                    MenuModel model = childList.get(headerList.get(groupPosition)).get(childPosition);
-                    if (model.url.length() > 0) {
-                        WebView webView = findViewById(R.id.webView);
-                        webView.loadUrl(model.url);
-                        onBackPressed();
+                    MenuModel childItem = childList.get(headerList.get(groupPosition)).get(childPosition);
+                    Log.i(TAG, "onChildClick : " + childItem.menuName);
+
+                    switch (childItem.menuName) {
+                        case "Faculty":
+                            if (fragmentFaculty == null) {
+                                fragmentFaculty = new FragmentFaculty();
+                            }
+                            switchFragment(fragmentFaculty);
+                            break;
+                        default:
+                            if (fragmentHome == null) {
+                                fragmentHome = new FragmentHome();
+                            }
+                            switchFragment(fragmentHome);
                     }
+
+                    onBackPressed();
+                } else {
+                    Log.e(TAG, "onChildClick childList is null ! Head : " + headerList.get(groupPosition));
                 }
 
                 return false;

@@ -16,9 +16,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/drawable/drawable_home',
+                            'src/main/res/drawable/drawable_about',
+                            'src/main/res/drawable',
+
+                            'src/main/res/layouts/main',
+                            'src/main/res/layouts/home',
+                            'src/main/res/layouts/about',
+                            'src/main/res/layouts/admission',
+                            'src/main/res/layouts',
+                            'src/main/res'
+                    ]
+        }
+    }
     lintOptions {
         disable 'GoogleAppIndexingWarning'
     }
+
 }
 
 dependencies {

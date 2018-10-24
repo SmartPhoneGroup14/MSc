@@ -14,8 +14,7 @@
         android:id="@+id/main_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-    </FrameLayout>
+        android:fitsSystemWindows="true"></FrameLayout>
 
 
     <!-- 侧滑菜单 -->
@@ -31,12 +30,11 @@
         <ExpandableListView
             android:id="@+id/expandableListView"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="176dp"
             android:background="@android:color/white"
             android:dividerHeight="0dp"
-            android:groupIndicator="@null">
-        </ExpandableListView>
+            android:groupIndicator="@null"></ExpandableListView>
 
     </android.support.design.widget.NavigationView>
 
