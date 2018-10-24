@@ -17,7 +17,6 @@ import android.widget.Button;
 import com.hku.msc.MainActivity;
 import com.hku.msc.R;
 
-
 public class FragmentAbout extends Fragment implements Button.OnClickListener {
 
     private static final String TAG = "FragmentAbout";
@@ -79,16 +78,12 @@ public class FragmentAbout extends Fragment implements Button.OnClickListener {
         } else if (id == R.id.fragment_about_btn3) {
             Log.i(TAG, "fragment_about_btn3");
         }
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         Log.i(TAG, "onOptionsItemSelected " + item.getItemId() + item.getTitle());
-
 //        FragmentTransaction fragmentTransaction = ((AppCompatActivity) getActivity()).getSupportFragmentManager().beginTransaction();
-//
 //        fragmentTransaction.hide()
 
         ((MainActivity) getActivity()).goBackView("about");

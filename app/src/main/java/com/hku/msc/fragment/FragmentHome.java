@@ -32,14 +32,10 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
     private ConvenientBanner convenientBanner;
     private ArrayList<Integer> localImages = new ArrayList<Integer>();
 
-    DrawerLayout drawer;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(TAG, TAG + " onCreateView");
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-        DrawerLayout drawer = (DrawerLayout) container.findViewById(R.id.main_layout);
 
         initToolbar(view);
         initAppBarLayout(view);
@@ -51,26 +47,34 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
     private void initToolbar(View view) {
         Log.i(TAG, "initToolbar");
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.home_toolbar);
-        toolbar.setTitle("Home > Test");
+        toolbar.setTitle("Home");
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
-        //初始化抽屉
-        DrawerLayout drawer = (DrawerLayout) view.findViewById(R.id.main_layout);
+        // 给左上角图标加一个可以返回的图标
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // 决定左上角图标是否可以点击，在4.0版本以前默认值为true，4.0以上默认值改为false
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+
+        // 在Fragment中使用menu菜单, 使重写的onCreateOptionsMenu（）,onOptionsItemSelected（）生效
+//        setHasOptionsMenu(true);
+
+        // 绑定返回按钮 与 弹出左侧抽屉 ,尝试失败, 采用调用MainActivity 的方法进行fragment 切换
+//        DrawerLayout drawer = (DrawerLayout) view.findViewById(R.id.main_layout);
 //        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
 //                getActivity(), drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        if (drawer == null) {
-            Log.e(TAG, "drawer is null");
-        }
+//        if (drawer == null) {
+//            Log.e(TAG, "drawer is null");
+//        }
 //        drawer.addDrawerListener(toggle);
 //        toggle.syncState();
-
     }
 
     private void initAppBarLayout(View view) {
-        //Home页上下滚动
+        // Home页上下滚动
         appBarLayout = (AppBarLayout) view.findViewById(R.id.app_bar);
-//        appBarLayout.addOnOffsetChangedListener(this);
+        // 滚动事件,控制顶层图片渐隐
+        appBarLayout.addOnOffsetChangedListener(this);
 
         totalHeight = getResources().getDimension(R.dimen.app_bar_height);
         toolBarHeight = getResources().getDimension(R.dimen.tool_bar_height);
@@ -104,8 +108,7 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
 //        Log.d(TAG, "----> " + verticalOffset);
 //        向上滑动得到的值是负的，初始值为0 就是展开状态。
-//        verticalOffset能滑动最远距离为
-//        AppBarLayout的高度 减去 CollapsingToolbarLayout折叠时的高度
+//        verticalOffset能滑动最远距离为 AppBarLayout的高度 减去 CollapsingToolbarLayout折叠时的高度
 
         //滑动一次 得到渐变缩放值
         float alphaScale = (-verticalOffset) / offSetHeight;
@@ -116,7 +119,7 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
     @Override
     public void onResume() {
         super.onResume();
-        convenientBanner.startTurning(2000);
+        convenientBanner.startTurning(4000);
     }
 
     // 停止自动翻页
@@ -135,34 +138,9 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
 ////        convenientBanner.setCanLoop(!convenientBanner.isCanLoop());
 //    }
 
-
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
 //        Log.i(TAG, TAG + " onHiddenChanged hidden : " + hidden);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        Log.i(TAG, "onCreateOptionsMenu");
-
-        inflater.inflate(R.menu.main, menu);
-
-//        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
