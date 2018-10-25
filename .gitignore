@@ -6,6 +6,7 @@
 /.idea/workspace.xml
 /.idea/caches
 /.idea
+.idea
 .DS_Store
 /build
 /captures
@@ -17,20 +18,8 @@
 *.ap_
 *.aab
 
-# Files for the ART/Dalvik VM
-*.dex
-
 # Java class files
 *.class
-
-# Generated files
-bin/
-gen/
-out/
-
-# Gradle files
-.gradle/
-build/
 
 # Log Files
 *.log
