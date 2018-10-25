@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.bigkoo.convenientbanner.holder.Holder;
 
 /*
-自动轮播的控件，也可以用viewpager容器 实现
+    自动轮播的控件，也可以用viewpager容器 实现
  */
 public class LocalImageHolderView implements Holder<Integer> {
     private ImageView imageView;

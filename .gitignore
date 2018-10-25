@@ -4,8 +4,23 @@
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
+/.idea/caches/build_file_checksums.ser
+/.idea/caches
+/.idea
 .idea
 .DS_Store
 /build
 /captures
 .externalNativeBuild
+
+
+# Built application files
+*.apk
+*.ap_
+*.aab
+
+# Java class files
+*.class
+
+# Log Files
+*.log
