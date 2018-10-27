@@ -11,6 +11,7 @@ build/
 .idea/dictionaries
 .idea/libraries
 .idea/caches
+.idea/
 
 /local.properties
 .DS_Store
