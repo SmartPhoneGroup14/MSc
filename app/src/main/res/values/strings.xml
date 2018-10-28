@@ -17,4 +17,71 @@
 
         "The academic staff is active in research and development in a variety of areas including databases, parallel and distributed computing, computer networks, computer graphics, algorithms and complexity, computer vision, multimedia, software engineering, statistical computing, information security and computer forensics, and legal aspects of computing. Some of our research results have been applied to the development of real software and systems. You will have these researchers as your inspiring teachers of the courses in this programme. Here are some of them."
     </string>
+
+
+    <string name="programme_overview">
+        "The MSc(CompSc) programme is a comprehensive postgraduate study programme provides advanced and in-depth learning in Computer Science.  The programme is credit unit based, with courses of both applied and fundamental nature.\n\n"
+
+        "Students can choose focussed streams of study or a comprehensive and diversified study in Computer Science, i.e. the General Stream.\n\n"
+
+        "Focussed streams of study represent a cohesive collection of related courses that provides both fundamental and in-depth exposure to students in a given ICT domain.  Students can extend and deepen their knowledge in the specialization streams in Cyber Security, Multimedia Computing and Financial Computing."
+    </string>
+    <string name="pattern_of_study">
+        "Students are required to complete 72 credits, of which 48 credits from courses (equivalent to eight 6-credit courses) plus a dissertation (equivalent to 24 credits). "
+    </string>
+    <string name="selection_of_courses">
+        "Students of Cyber Security, Multimedia Computing, or Financial Computing Stream are required to select a minimum of 24 credits of stream specific courses (equivalent to four 6-credit courses) in the corresponding subject group, and undertake a dissertation in the area of the corresponding stream.\n\n"
+
+        "For General Stream, students can choose 48 credits of courses (equivalent to eight 6-credit courses) from any stream and subject group in the curriculum, and undertake a dissertation in any area in computer science.\n\n"
+
+        "In addition to the list of MSc(CompSc) courses for students to choose from, students may select no more than 12 credits of courses (equivalent to two 6-credit courses) from the syllabuses for the degrees of MSc(ECom&amp;IComp) and MSc(Eng), subject to the approval of the Head of the Department of Computer Science.  Details of courses from MSc(ECom&amp;IComp) can be found in this website: https://www.ecom-icom.hku.hk."
+    </string>
+    <string name="capstone_experience_dissertations">
+        "The capstone experience will definitely be beneficial for students to put together what they have learnt in the programme and demonstrate a deeper understanding of the knowledge they have acquired. Students are required to complete a dissertation (24 credits) and attend some supplementary workshops. The dissertation would represent students’ consolidated capstone experience in their study."
+    </string>
+
+
+    <string name="duration_of_study">
+        "The MSc(CompSc) programme is offered in both full-time and part-time modes. \n\n"
+
+        "There are 3 semesters in an academic year, i.e. semester 1: September – December, semester 2: January – May and the summer semester: June – August.\n\n"
+
+        "The curriculum in full-time mode shall take a minimum of 4 semesters of study (i.e. from September 2019 to December 2020).  The maximum period of study is two years.\n\n"
+
+        "For the part-time mode, the curriculum shall normally take eight semesters of study, and the maximum period of study is three years."
+    </string>
+    <string name="class_schedule">
+        "Classes are usually conducted in weekday evenings from 7:00 p.m., or during weekends.  Some courses will be offered mainly for full-time students in weekday daytime."
+    </string>
+
+
+    <string name="Composition_Fees">
+        "The composition fee for each 6 credit-units in MSc(CompSc) is HK$13,000*.  The dissertation, which is equivalent to 24 credits, has a composition fee of HK$52,000*.  The total composition fees are therefore as follows:\n\n"
+
+        "   48 credit-units (8 courses) + dissertation:"
+        "   (HK$13,000* x 8) + (HK$52,000*) = HK$156,000* \n\n"
+
+        "Students who select to study a course from the MSc(ECom&amp;IComp) and MSc(Eng) programmes have to pay HK$13,000* and HK$12,000* respectively per 6-credit course.\n\n"
+
+        "* Subject to University approval\n\n"
+
+        "Fees for enrolled courses are paid on semester basis.  The first instalment of composition fees of 12 credit-units is payable at the time of acceptance of an offer of admission.\n\n"
+
+        "Generally composition fees for cancelled enrolment before specified deadline are not refunded, but can be used to pay for another enrolled course or carried over to the next semester as credit. (Subject to the approval by the University)"
+    </string>
+    <string name="Financial_Assistance">
+        "For Hong Kong Residents\n\n"
+
+        "   Continuing Education Fund (CEF)Some of our courses have been included in the list of reimbursable courses for the Hong Kong Continuing Education Fund (CEF) which provides reimbursement up to HK$10,000 for eligible local students.  More details available at: http://www.wfsfaa.gov.hk/cef/index.htm\n\n"
+
+        "For PRC Candidates\n\n"
+
+        "   PRC students who have successfully applied and been offered a place in the Master of Science in Computer Science as full-time students in Hong Kong have an opportunity to have their composition fees reduced if they apply and are awarded The China Postgraduate Scholarships for Computer Science.\n\n"
+
+        "   The maximum number of scholarships for 2019-20 is thirty, with a maximum value of HK$30,000 each.\n\n"
+
+        "   The scholarships shall be used to meet part of the composition fees for a full-time programme of studies leading to the degree of Master of Science in Computer Science.\n\n"
+
+        "   The scholarships shall be awarded mainly on the basis of academic merits."
+    </string>
 </resources>

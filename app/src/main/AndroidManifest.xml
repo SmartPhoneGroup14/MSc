@@ -3,7 +3,7 @@
     package="com.hku.msc">
 
     <application
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@drawable/msc_cs_logo_dark_bg"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"

@@ -14,6 +14,9 @@ import android.widget.ExpandableListView;
 import com.hku.msc.fragment.About.FragmentAbout;
 import com.hku.msc.fragment.About.FragmentFaculty;
 import com.hku.msc.fragment.About.FragmentMessage;
+import com.hku.msc.fragment.BasicInfo.FragmentFees;
+import com.hku.msc.fragment.BasicInfo.FragmentOverview;
+import com.hku.msc.fragment.BasicInfo.FragmentSchedule;
 import com.hku.msc.fragment.FragmentHome;
 import com.hku.msc.menu.ExpandableListAdapter;
 import com.hku.msc.menu.MenuModel;
@@ -32,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private FragmentAbout fragmentAbout;
     private FragmentFaculty fragmentFaculty;
     private FragmentMessage fragmentMessage;
+    //Basic Info 页
+    private FragmentOverview fragmentOverview;
+    private FragmentSchedule fragmentSchedule;
+    private FragmentFees fragmentFees;
     //当前页
     private Fragment currentFragment;
 
@@ -204,6 +211,18 @@ public class MainActivity extends AppCompatActivity {
             childList.put(menuModel, childModelsList);
         }
 
+        // Menu of Basci Infomation. 3 sub menus
+        menuModel = new MenuModel("Basic Information", true, true);
+        headerList.add(menuModel);
+
+        childModelsList = new ArrayList<>();
+        childModelsList.add(new MenuModel("Programme Overview", false, false));
+        childModelsList.add(new MenuModel("Programme Schedule", false, false));
+        childModelsList.add(new MenuModel("Composite Fees", false, false));
+        if (menuModel.hasChildren) {
+            childList.put(menuModel, childModelsList);
+        }
+
         // Menu of About. 3 sub menus
         menuModel = new MenuModel("About", true, true);
         headerList.add(menuModel);
@@ -216,55 +235,55 @@ public class MainActivity extends AppCompatActivity {
             childList.put(menuModel, childModelsList);
         }
 
-        // Menu of Admission. 6 sub menus
-        menuModel = new MenuModel("Admission", true, true);
-        headerList.add(menuModel);
-
-        childModelsList = new ArrayList<>();
-        childModelsList.add(new MenuModel("Admission Requirements", false, false));
-        childModelsList.add(new MenuModel("Application Procedures", false, false));
-        childModelsList.add(new MenuModel("Composition Fees", false, false));
-        childModelsList.add(new MenuModel("Words from Students and Graduates", false, false));
-        childModelsList.add(new MenuModel("Information Sessions", false, false));
-        childModelsList.add(new MenuModel("FAQ", false, false));
-        if (menuModel.hasChildren) {
-            childList.put(menuModel, childModelsList);
-        }
-
-        // Menu of Curriculum. 4 sub menus
-        menuModel = new MenuModel("Curriculum", true, true);
-        headerList.add(menuModel);
-
-        childModelsList = new ArrayList<>();
-        childModelsList.add(new MenuModel("Programme Overview", false, false));
-        childModelsList.add(new MenuModel("Courses", false, false));
-        childModelsList.add(new MenuModel("Duration of Study & Class Schedule", false, false));
-        childModelsList.add(new MenuModel("Regulations and Syllabus", false, false));
-        if (menuModel.hasChildren) {
-            childList.put(menuModel, childModelsList);
-        }
-
-        // Menu of News & Events. no sub menus
-        menuModel = new MenuModel("News & Events", true, false);
-        headerList.add(menuModel);
-
-        childModelsList = new ArrayList<>();
-        if (menuModel.hasChildren) {
-            childList.put(menuModel, childModelsList);
-        }
-
-        // Menu of Student Resources. 4 sub menus
-        menuModel = new MenuModel("Student Resources", true, true);
-        headerList.add(menuModel);
-
-        childModelsList = new ArrayList<>();
-        childModelsList.add(new MenuModel("Learning Environment", false, false));
-        childModelsList.add(new MenuModel("MSc(CompSc) Intranet", false, false));
-        childModelsList.add(new MenuModel("HKU Portal", false, false));
-        childModelsList.add(new MenuModel("Useful Links", false, false));
-        if (menuModel.hasChildren) {
-            childList.put(menuModel, childModelsList);
-        }
+//        // Menu of Admission. 6 sub menus
+//        menuModel = new MenuModel("Admission", true, true);
+//        headerList.add(menuModel);
+//
+//        childModelsList = new ArrayList<>();
+//        childModelsList.add(new MenuModel("Admission Requirements", false, false));
+//        childModelsList.add(new MenuModel("Application Procedures", false, false));
+//        childModelsList.add(new MenuModel("Composition Fees", false, false));
+//        childModelsList.add(new MenuModel("Words from Students and Graduates", false, false));
+//        childModelsList.add(new MenuModel("Information Sessions", false, false));
+//        childModelsList.add(new MenuModel("FAQ", false, false));
+//        if (menuModel.hasChildren) {
+//            childList.put(menuModel, childModelsList);
+//        }
+//
+//        // Menu of Curriculum. 4 sub menus
+//        menuModel = new MenuModel("Curriculum", true, true);
+//        headerList.add(menuModel);
+//
+//        childModelsList = new ArrayList<>();
+//        childModelsList.add(new MenuModel("Programme Overview", false, false));
+//        childModelsList.add(new MenuModel("Courses", false, false));
+//        childModelsList.add(new MenuModel("Duration of Study & Class Schedule", false, false));
+//        childModelsList.add(new MenuModel("Regulations and Syllabus", false, false));
+//        if (menuModel.hasChildren) {
+//            childList.put(menuModel, childModelsList);
+//        }
+//
+//        // Menu of News & Events. no sub menus
+//        menuModel = new MenuModel("News & Events", true, false);
+//        headerList.add(menuModel);
+//
+//        childModelsList = new ArrayList<>();
+//        if (menuModel.hasChildren) {
+//            childList.put(menuModel, childModelsList);
+//        }
+//
+//        // Menu of Student Resources. 4 sub menus
+//        menuModel = new MenuModel("Student Resources", true, true);
+//        headerList.add(menuModel);
+//
+//        childModelsList = new ArrayList<>();
+//        childModelsList.add(new MenuModel("Learning Environment", false, false));
+//        childModelsList.add(new MenuModel("MSc(CompSc) Intranet", false, false));
+//        childModelsList.add(new MenuModel("HKU Portal", false, false));
+//        childModelsList.add(new MenuModel("Useful Links", false, false));
+//        if (menuModel.hasChildren) {
+//            childList.put(menuModel, childModelsList);
+//        }
     }
 
 
@@ -282,6 +301,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (headItem.isGroup) {
                     if (!headItem.hasChildren) {
+                        //一级菜单没有子菜单,先默认跳转到home页
                         switch (headItem.menuName) {
                             default:
                                 if (fragmentHome == null) {
@@ -304,11 +324,41 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(TAG, "onChildClick : " + childItem.menuName);
 
                     switch (childItem.menuName) {
+                        case "Programme Overview":
+                            if (fragmentOverview == null) {
+                                fragmentOverview = new FragmentOverview();
+                            }
+                            switchFragment(fragmentOverview);
+                            break;
+                        case "Programme Schedule":
+                            if (fragmentSchedule == null) {
+                                fragmentSchedule = new FragmentSchedule();
+                            }
+                            switchFragment(fragmentSchedule);
+                            break;
+                        case "Composite Fees":
+                            if (fragmentFees == null) {
+                                fragmentFees = new FragmentFees();
+                            }
+                            switchFragment(fragmentFees);
+                            break;
                         case "Faculty":
                             if (fragmentFaculty == null) {
                                 fragmentFaculty = new FragmentFaculty();
                             }
                             switchFragment(fragmentFaculty);
+                            break;
+                        case "Message fom Programme Director":
+                            if (fragmentMessage == null) {
+                                fragmentMessage = new FragmentMessage();
+                            }
+                            switchFragment(fragmentMessage);
+                            break;
+                        case "About HKU":
+                            if (fragmentAbout == null) {
+                                fragmentAbout = new FragmentAbout();
+                            }
+                            switchFragment(fragmentAbout);
                             break;
                         default:
                             if (fragmentHome == null) {
