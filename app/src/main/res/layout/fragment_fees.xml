@@ -42,19 +42,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
                 android:text="@string/Composition_Fees"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_margin="15dp"
                 android:textStyle="bold"
                 android:text="Financial Assistance"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
                 android:text="@string/Financial_Assistance"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
