@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:icon="@drawable/msc_cs_logo_dark_bg"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/msc_cs_logo_dark_bg"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
