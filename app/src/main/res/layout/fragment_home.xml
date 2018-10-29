@@ -49,12 +49,10 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--<include layout="@layout/content_home" />-->
-
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/white"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -63,25 +61,148 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <!-- A CardView that contains a TextView -->
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@string/msc_home" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/programme_schedule" />
+                card_view:cardCornerRadius="4dp">
 
-            <ImageView
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:shadowColor="#fab80e"
+                        android:shadowDx="5"
+                        android:shadowDy="5"
+                        android:shadowRadius="3"
+                        android:text="Master of Science in Computer Science, HKU"
+                        android:textColor="#56179c"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Programme Overview"
+                        android:textColor="#000"
+                        android:textSize="17dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:text="@string/msc_home_overview"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/overview_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="-5dp"
+                        android:autoLink="all"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#45c0fd"
+                        android:textStyle="bold" />
+                </android.support.v7.widget.LinearLayoutCompat>
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/programme_fees" />
+                card_view:cardCornerRadius="4dp">
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_margin="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/programme_schedule" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:text="@string/msc_home_schedule"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/schedule_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="-5dp"
+                        android:autoLink="all"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#45c0fd"
+                        android:textStyle="bold" />
+                </android.support.v7.widget.LinearLayoutCompat>
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                card_view:cardCornerRadius="4dp">
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_margin="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/programme_fees" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:gravity="center"
+                        android:text="@string/msc_home_fee"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:id="@+id/fee_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="-5dp"
+                        android:autoLink="all"
+                        android:gravity="center"
+                        android:text="Learn More"
+                        android:textColor="#45c0fd"
+                        android:textStyle="bold" />
+                </android.support.v7.widget.LinearLayoutCompat>
+            </android.support.v7.widget.CardView>
         </LinearLayout>
 
 

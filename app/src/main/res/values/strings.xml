@@ -6,12 +6,26 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="msc_home">
-        "Master of Science in Computer Science, HKU \n\n"
-
+    <string name="msc_home_overview">
         "The MSc(CompSc) programme is a comprehensive postgraduate study programme provides advanced and in-depth learning in Computer Science. The programme is credit unit based, with courses of both applied and fundamental nature. Students can choose from a comprehensive and diversified study in Computer Science courses or focussed streams of study. Focussed streams of study represent a cohesive collection of related courses that provides both fundamental and in-depth exposure to students in a given ICT domain."
-
     </string>
+
+    <string name="msc_home_schedule">
+        "The MSc(CompSc) programme is offered in both part-time and full-time mode.\n\n"
+
+        "There are 3 semesters in an academic year. The curriculum in full-time mode shall take a minimum of 4 semesters of study. For the part-time mode, the curriculum shall normally take eight semesters of study.\n\n"
+
+        "Classes are usually conducted in weekday evenings from 7:00 p.m., or during weekends. Some courses will only be offered mainly for full-time students in weekday daytime."
+    </string>
+
+    <string name="msc_home_fee">
+        "The composition fee for each 6-credit course in MSc(CompSc) curriculum is HK$11,000*. The dissertation, which is equivalent to 24 credits, has a composition fee of HK$44,000*. The total composition fees are therefore as follows:\n\n"
+
+        "48 credit-units (8 courses) + dissertation:\n\n"
+
+        "(HK$11,000* x 8) + (HK$44,000*) = HK$132,000*"
+    </string>
+
     <string name="msc_about_faculty">
         "The Department of Computer Science is committed to high-quality education and training of computing professionals at both the undergraduate and postgraduate levels. At the postgraduate level, we offer two taught programmes based on coursework, the MSc(CompSc) and the MSc(ECom&amp;IComp), as well as the research-based MPhil and PhD programmes.\n\n"
 
