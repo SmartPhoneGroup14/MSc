@@ -4,6 +4,8 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -50,6 +52,15 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
         toolbar.setTitle("home");
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
+        toolbar.setNavigationIcon(R.drawable.icon_list);
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.i(TAG,"toolbar onclick");
+//
+//            }
+//        });
+
         // 给左上角图标加一个可以返回的图标
 //        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -60,14 +71,15 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
 //        setHasOptionsMenu(true);
 
         // 绑定返回按钮 与 弹出左侧抽屉 ,尝试失败, 采用调用MainActivity 的方法进行fragment 切换
-//        DrawerLayout drawer = (DrawerLayout) view.findViewById(R.id.main_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                getActivity(), drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        if (drawer == null) {
-//            Log.e(TAG, "drawer is null");
-//        }
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
+        DrawerLayout drawer = (DrawerLayout) getActivity().findViewById(R.id.main_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                getActivity(), drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        if (drawer == null) {
+            Log.e(TAG, "drawer is null");
+        }
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
     }
 
     private void initAppBarLayout(View view) {

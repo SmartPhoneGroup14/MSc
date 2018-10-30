@@ -16,7 +16,7 @@ import com.hku.msc.MainActivity;
 import com.hku.msc.R;
 
 public class FragmentFaculty extends Fragment {
-    private static final String TAG = "FragmentAbout > Faculty";
+    private static final String TAG = "FragmentFaculty";
 
     @Nullable
     @Override
@@ -24,26 +24,20 @@ public class FragmentFaculty extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_faculty, container, false);
 
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.fragment_faculty_toolbar);
-//      自定义返回图标
-//        toolbar.setNavigationIcon( R.attr.navigationIcon);
-        toolbar.setTitle("Home > About > Faculty");
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.fragment_toolbar);
+        toolbar.setTitle("Faculty");
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setHasOptionsMenu(true);
+        toolbar.setNavigationIcon(R.drawable.icon_arrow);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG,"toolbar onclick");
+                ((MainActivity) getActivity()).goBackView("home");
+            }
+        });
 
         return view;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Log.i(TAG, "onOptionsItemSelected " + item.getItemId() + item.getTitle());
-//        FragmentTransaction fragmentTransaction = ((AppCompatActivity) getActivity()).getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.hide()
-        ((MainActivity) getActivity()).goBackView("home");
-
-//        return true;
-        return super.onOptionsItemSelected(item);
     }
 
 }

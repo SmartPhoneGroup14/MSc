@@ -59,7 +59,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <!-- A CardView that contains a TextView -->
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -143,6 +144,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="#ff9800"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
                         android:text="Programme Schedule"
                         android:textColor="#fff" />
 
@@ -193,6 +196,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:background="#ff9800"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
                         android:text="Composition Fees"
                         android:textColor="#fff" />
 

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentOverview extends Fragment {
-    private static final String TAG = "Basic Info > Schedule";
+    private static final String TAG = "Basic Info > Overview";
 
     private ViewPager pager;
     private List<View> views;
@@ -39,12 +39,18 @@ public class FragmentOverview extends Fragment {
         View view = inflater.inflate(R.layout.fragment_overview, container, false);
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.fragment_toolbar);
-//      自定义返回图标
-//        toolbar.setNavigationIcon( R.attr.navigationIcon);
         toolbar.setTitle("Programme Overview");
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setHasOptionsMenu(true);
+//      自定义返回图标
+        toolbar.setNavigationIcon(R.drawable.icon_arrow);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG,"toolbar onclick");
+                ((MainActivity) getActivity()).goBackView("home");
+            }
+        });
 
         initTextView(view);
         initView(inflater);
@@ -52,14 +58,6 @@ public class FragmentOverview extends Fragment {
 
         return view;
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Log.i(TAG, "onOptionsItemSelected " + item.getItemId() + item.getTitle());
-        ((MainActivity) getActivity()).goBackView("home");
-        return super.onOptionsItemSelected(item);
-    }
-
 
     public void initTextView(View view) {
         TextView firstView = (TextView) view.findViewById(R.id.firstView);

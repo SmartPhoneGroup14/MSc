@@ -16,7 +16,7 @@ import com.hku.msc.MainActivity;
 import com.hku.msc.R;
 
 public class FragmentSchedule extends Fragment {
-    private static final String TAG = "Basic Info > Overview";
+    private static final String TAG = "Basic Info > Schedule";
 
     @Nullable
     @Override
@@ -29,21 +29,16 @@ public class FragmentSchedule extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //      自定义返回图标
         toolbar.setNavigationIcon(R.drawable.icon_arrow);
-        setHasOptionsMenu(true);
+//        setHasOptionsMenu(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG,"toolbar onclick");
+                ((MainActivity) getActivity()).goBackView("home");
+            }
+        });
 
-//        toolbar.setNavigationOnClickListener()
         return view;
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Log.i(TAG, "onOptionsItemSelected " + item.getItemId() + item.getTitle());
-        if (item.getItemId() == R.drawable.icon_arrow) {
-            Log.i(TAG, "onOptionsItemSelected equals");
-        }
-        ((MainActivity) getActivity()).goBackView("home");
-        return super.onOptionsItemSelected(item);
-    }
-
 
 }

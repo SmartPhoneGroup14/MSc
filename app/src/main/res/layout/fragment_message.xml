@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/fragment_message_toolbar"
+        android:id="@+id/fragment_toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tool_bar_height"
         android:background="@drawable/contenth_instructors"
