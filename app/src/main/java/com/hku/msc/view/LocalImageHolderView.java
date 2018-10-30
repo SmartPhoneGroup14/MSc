@@ -1,4 +1,4 @@
-package com.hku.msc;
+package com.hku.msc.view;
 
 import android.content.Context;
 import android.view.View;

@@ -32,30 +32,106 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@android:color/white"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Composition Fees"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/Composition_Fees"/>
+                android:gravity="left"
+                android:text="Composition Fees"
+                android:textColor="#000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="50dp"
+                android:layout_height="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#ff9800" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:textStyle="bold"
-                android:text="Financial Assistance"/>
+                android:gravity="left"
+                android:text="@string/fees_fees_part1"
+                android:textColor="#000"
+                android:textSize="16dp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/Financial_Assistance"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:text="* Subject to University approval"
+                android:textColor="#4e4e4e"
+                android:textSize="16dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/fees_fees_part2"
+                android:textColor="#000"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="left"
+                android:text="Financial Assistance"
+                android:textColor="#000"
+                android:textSize="18dp" />
+
+            <View
+                android:layout_width="50dp"
+                android:layout_height="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#ff9800" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="left"
+                android:text="For Hong Kong Residents"
+                android:textColor="#4e4e4e"
+                android:textSize="16dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_vertical"
+                android:text="@string/fees_fees_part1"
+                android:textColor="#000"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="left"
+                android:text="For PRC Candidates"
+                android:textColor="#4e4e4e"
+                android:textSize="16dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_vertical"
+                android:layout_marginBottom="50dp"
+                android:text="@string/fees_fees_part2"
+                android:textColor="#000"
+                android:textSize="16dp" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 

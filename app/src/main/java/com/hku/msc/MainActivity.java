@@ -15,8 +15,8 @@ import com.hku.msc.fragment.About.FragmentAbout;
 import com.hku.msc.fragment.About.FragmentFaculty;
 import com.hku.msc.fragment.About.FragmentMessage;
 import com.hku.msc.fragment.BasicInfo.FragmentFees;
-import com.hku.msc.fragment.BasicInfo.FragmentOverview;
 import com.hku.msc.fragment.BasicInfo.FragmentSchedule;
+import com.hku.msc.fragment.BasicInfo.FragmentOverview;
 import com.hku.msc.fragment.FragmentHome;
 import com.hku.msc.menu.ExpandableListAdapter;
 import com.hku.msc.menu.MenuModel;
@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     private void switchFragment(Fragment targetFragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
         if (targetFragment == null) {
             Log.e(TAG, "switchFragment targetFragment is null !");
             return;
@@ -111,13 +112,39 @@ public class MainActivity extends AppCompatActivity {
 
     //     提供给fragment toolbar 返回按钮调用，返回主页面/上级页面
     public void goBackView(String targetView) {
-        Log.i(TAG, "targetView : " + targetView);
+        Log.i(TAG, "goBackView : " + targetView);
         switch (targetView) {
             case "home":
                 switchFragment(fragmentHome);
                 break;
             default:
                 switchFragment(fragmentHome);
+        }
+    }
+
+    public void goForwardView(String targetView) {
+        Log.i(TAG, "goForwardView : " + targetView);
+        switch (targetView) {
+            case "Overview":
+                if (fragmentOverview == null) {
+                    fragmentOverview = new FragmentOverview();
+                }
+                switchFragment(fragmentOverview);
+                break;
+            case "Schedule":
+                if (fragmentSchedule == null) {
+                    fragmentSchedule = new FragmentSchedule();
+                }
+                switchFragment(fragmentSchedule);
+                break;
+            case "Fees":
+                if (fragmentFees == null) {
+                    fragmentFees = new FragmentFees();
+                }
+                switchFragment(fragmentFees);
+                break;
+            default:
+                break;
         }
     }
 

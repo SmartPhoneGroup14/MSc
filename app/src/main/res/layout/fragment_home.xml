@@ -110,6 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="-5dp"
+                        android:layout_marginBottom="5dp"
                         android:autoLink="all"
                         android:gravity="center"
                         android:text="Learn More"
@@ -135,9 +136,15 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="10dp"
                         android:scaleType="fitXY"
                         android:src="@drawable/programme_schedule" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="#ff9800"
+                        android:text="Programme Schedule"
+                        android:textColor="#fff" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -153,6 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="-5dp"
+                        android:layout_marginBottom="5dp"
                         android:autoLink="all"
                         android:gravity="center"
                         android:text="Learn More"
@@ -178,9 +186,15 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="10dp"
                         android:scaleType="fitXY"
                         android:src="@drawable/programme_fees" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="#ff9800"
+                        android:text="Composition Fees"
+                        android:textColor="#fff" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -196,6 +210,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="-5dp"
+                        android:layout_marginBottom="5dp"
                         android:autoLink="all"
                         android:gravity="center"
                         android:text="Learn More"

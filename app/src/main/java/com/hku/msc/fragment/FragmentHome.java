@@ -1,5 +1,6 @@
 package com.hku.msc.fragment;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
@@ -9,10 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
-import com.hku.msc.LocalImageHolderView;
+import com.hku.msc.view.LocalImageHolderView;
+import com.hku.msc.MainActivity;
 import com.hku.msc.R;
 
 import java.util.ArrayList;
@@ -36,6 +39,7 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
         initToolbar(view);
         initAppBarLayout(view);
         initConvenientBanner(view);
+        initTextViewClick(view);
 
         return view;
     }
@@ -133,6 +137,41 @@ public class FragmentHome extends Fragment implements AppBarLayout.OnOffsetChang
 ////        startActivity(new Intent(this, MainActivity.class));
 ////        convenientBanner.setCanLoop(!convenientBanner.isCanLoop());
 //    }
+
+    private void initTextViewClick(View view) {
+        TextView textView1 = (TextView) view.findViewById(R.id.overview_text);
+        textView1.setClickable(true);
+        textView1.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
+        textView1.getPaint().setAntiAlias(true);//抗锯齿
+        textView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).goForwardView("Overview");
+            }
+        });
+
+        TextView textView2 = (TextView) view.findViewById(R.id.schedule_text);
+        textView2.setClickable(true);
+        textView2.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
+        textView2.getPaint().setAntiAlias(true);//抗锯齿
+        textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).goForwardView("Schedule");
+            }
+        });
+
+        TextView textView3 = (TextView) view.findViewById(R.id.fee_text);
+        textView3.setClickable(true);
+        textView3.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
+        textView3.getPaint().setAntiAlias(true);//抗锯齿
+        textView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).goForwardView("Fees");
+            }
+        });
+    }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
