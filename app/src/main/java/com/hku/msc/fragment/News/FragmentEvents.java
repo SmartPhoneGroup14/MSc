@@ -2,13 +2,11 @@ package com.hku.msc.fragment.News;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,21 +31,21 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class FragmentNews extends Fragment implements LoadingView.LoadingViewListener {
-    private static final String TAG = "FragmentNews";
+public class FragmentEvents extends Fragment implements LoadingView.LoadingViewListener {
+    private static final String TAG = "FragmentEvents";
 
     private LoadingView mLoadingView;
 
-    private LinearLayout newsLayout;
+    private LinearLayout eventsLayout;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_events, container, false);
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.fragment_toolbar);
-        toolbar.setTitle("News");
+        toolbar.setTitle("Events");
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.icon_arrow);
@@ -64,7 +62,7 @@ public class FragmentNews extends Fragment implements LoadingView.LoadingViewLis
         mLoadingView.setListener(this);
         mLoadingView.showLoading();
 
-        newsLayout = view.findViewById(R.id.linearLayout);
+        eventsLayout = view.findViewById(R.id.linearLayout);
 
         initNewThread();
 
@@ -78,30 +76,34 @@ public class FragmentNews extends Fragment implements LoadingView.LoadingViewLis
                 try {
                     synchronized (this) {
                         Document doc = Jsoup.connect("https://www.msc-cs.hku.hk/NewsnEvents").get();
-                        Elements elements = doc.select("div.news");
+                        Elements elements = doc.select("div.Events");
 
                         LayoutInflater layoutInflater = getLayoutInflater();
 
                         for (Element element : elements) {
-                            String img = element.select("div.header").select("img").attr("src");
-                            String title = element.select("div.content").select("a").text();
-                            String time = element.select("div.content").select("div.metadata").select("time").text();
+                            String img = element.select("div.h-card").attr("data-src");
+                            String time = element.select("div.content").select("div.ch-info-out").text();
+                            String location = element.select("div.content").select("div.ch-info").text();
+                            String title = element.select("div.content").select("h5.title").text();
                             String des = element.select("div.content").select("p.description").text();
+
                             Bitmap bitmap = getHttpBitmap("https://www.msc-cs.hku.hk" + img);
 
-                            View cardview = layoutInflater.inflate(R.layout.cardview_news, null);
+                            View cardview = layoutInflater.inflate(R.layout.cardview_events, null);
 
                             ImageView imageView = cardview.findViewById(R.id.image);
-                            TextView titleView = cardview.findViewById(R.id.title);
                             TextView timeView = cardview.findViewById(R.id.time);
+                            TextView locationView = cardview.findViewById(R.id.loaction);
+                            TextView titleView = cardview.findViewById(R.id.title);
                             TextView desView = cardview.findViewById(R.id.des);
 
                             setBitmap(imageView, bitmap);
-                            setText(titleView, title);
                             setText(timeView, time);
+                            setText(locationView, location);
+                            setText(titleView, title);
                             setText(desView, des);
 
-                            addCardView(cardview, newsLayout);
+                            addCardView(cardview, eventsLayout);
                         }
 
                         showContentView();
@@ -190,9 +192,9 @@ public class FragmentNews extends Fragment implements LoadingView.LoadingViewLis
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (hidden == false) {
-            Log.i(TAG, "重新加载News");
+            Log.i(TAG, "重新加载Events");
             mLoadingView.showLoading();
-            newsLayout.removeAllViews();
+            eventsLayout.removeAllViews();
             initNewThread();
         }
     }

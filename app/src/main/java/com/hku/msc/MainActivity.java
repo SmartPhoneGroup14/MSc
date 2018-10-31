@@ -18,6 +18,8 @@ import com.hku.msc.fragment.BasicInfo.FragmentFees;
 import com.hku.msc.fragment.BasicInfo.FragmentSchedule;
 import com.hku.msc.fragment.BasicInfo.FragmentOverview;
 import com.hku.msc.fragment.FragmentHome;
+import com.hku.msc.fragment.News.FragmentEvents;
+import com.hku.msc.fragment.News.FragmentNews;
 import com.hku.msc.menu.ExpandableListAdapter;
 import com.hku.msc.menu.MenuModel;
 
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private FragmentOverview fragmentOverview;
     private FragmentSchedule fragmentSchedule;
     private FragmentFees fragmentFees;
+    //News & Events
+    private Fragment fragmentNews;
+    private Fragment fragmentEvents;
     //当前页
     private Fragment currentFragment;
 
@@ -290,14 +295,16 @@ public class MainActivity extends AppCompatActivity {
 //            childList.put(menuModel, childModelsList);
 //        }
 //
-//        // Menu of News & Events. no sub menus
-//        menuModel = new MenuModel("News & Events", true, false);
-//        headerList.add(menuModel);
-//
-//        childModelsList = new ArrayList<>();
-//        if (menuModel.hasChildren) {
-//            childList.put(menuModel, childModelsList);
-//        }
+        // Menu of News & Events. no sub menus
+        menuModel = new MenuModel("News & Events", true, true);
+        headerList.add(menuModel);
+
+        childModelsList = new ArrayList<>();
+        childModelsList.add(new MenuModel("News", false, false));
+        childModelsList.add(new MenuModel("Events", false, false));
+        if (menuModel.hasChildren) {
+            childList.put(menuModel, childModelsList);
+        }
 //
 //        // Menu of Student Resources. 4 sub menus
 //        menuModel = new MenuModel("Student Resources", true, true);
@@ -386,6 +393,18 @@ public class MainActivity extends AppCompatActivity {
                                 fragmentAbout = new FragmentAbout();
                             }
                             switchFragment(fragmentAbout);
+                            break;
+                        case "News":
+                            if (fragmentNews == null) {
+                                fragmentNews = new FragmentNews();
+                            }
+                            switchFragment(fragmentNews);
+                            break;
+                        case "Events":
+                            if (fragmentEvents == null) {
+                                fragmentEvents = new FragmentEvents();
+                            }
+                            switchFragment(fragmentEvents);
                             break;
                         default:
                             if (fragmentHome == null) {

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp">
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#d7282a"
+                android:gravity="center"
+                android:text="EVENTS"
+                android:textColor="#FFFFFF"
+                android:textFontWeight="600"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:translationZ="1dp" />
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:alpha="0.9"
+                    android:scaleType="fitXY"
+                    tools:src="@drawable/cardview_event_test" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.5"
+                    android:background="#7a7a7a" />
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <android.support.v7.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="#fff"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            tools:text="@string/cardview_test_time" />
+
+                        <TextView
+                            android:id="@+id/loaction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="#fff"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            tools:text="@string/cardview_test_event_loaction" />
+
+                    </android.support.v7.widget.LinearLayoutCompat>
+
+                    <android.support.v7.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FFFFAE00"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            tools:text="@string/cardview_test_event_title" />
+
+                        <TextView
+                            android:id="@+id/des"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17dp"
+                            tools:text="@string/cardview_test_event_des" />
+                    </android.support.v7.widget.LinearLayoutCompat>
+                </android.support.v7.widget.LinearLayoutCompat>
+            </android.support.design.widget.CoordinatorLayout>
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </android.support.v7.widget.CardView>
+</android.support.v7.widget.LinearLayoutCompat>

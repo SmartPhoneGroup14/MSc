@@ -186,4 +186,26 @@
 
         "HKU has ten faculties, a graduate school and a number of independent centres of studies and learning. In 2016-17, it had a student population of over 27,800, including over 16,100 undergraduates and 11,700 postgraduates, and an academic staff population of around 3,400. Coupled with an active alumni network and generous endowments for programme research and development, HKU is a dynamic and exciting institution. Stepping into Asia’s next century of phenomenal growth."
     </string>
+    
+    <string name="cardview_test_title">
+        "Graduation Dinner 2017"
+    </string>
+    <string name="cardview_test_time">
+        "Friday, December 1, 2017"
+    </string>
+    <string name="cardview_test_des">
+        "Graduates of Class 2017 of the MSc(CompSc) programme celebrated and shared their joy of achievement …"
+    </string>
+    <string name="cardview_test_event_title">
+        "Post Exhibition of MSc(CompSc) Dissertations - Spring 2018 (March 27)"
+    </string>
+    <string name="cardview_test_event_des">
+        "Every semester, a poster exhbition is held to showcase the work of our MSc(CompSc) students on&#160;…"
+    </string>
+    <string name="cardview_test_event_time">
+        "10am-1pm, 2-5pm, Mar-27, Tuesday"
+    </string>
+    <string name="cardview_test_event_loaction">
+        "3/F, The Jockey Club Tower, Central Podium Level, HKU"
+    </string>
 </resources>

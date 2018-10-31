@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:alpha="0.8"
+                    android:background="#797878"
+                    android:gravity="center"
+                    android:text="NEWS"
+                    android:textColor="#7cfc00"
+                    android:textFontWeight="600"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:translationZ="1dp" />
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    tools:src="@drawable/cardview_test" />
+
+            </android.support.design.widget.CoordinatorLayout>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="#333333"
+                android:textSize="18dp"
+                tools:text="@string/cardview_test_title" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="#333333"
+                android:textSize="14dp"
+                tools:text="@string/cardview_test_time" />
+
+            <TextView
+                android:id="@+id/des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="#9A9A9A"
+                android:textSize="16dp"
+                tools:text="@string/cardview_test_des" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+    </android.support.v7.widget.CardView>
+</android.support.v7.widget.LinearLayoutCompat>
