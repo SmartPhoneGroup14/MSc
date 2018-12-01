@@ -17,7 +17,7 @@
         android:layout_width="90dp"
         android:layout_height="100dp"
         android:contentDescription="@string/nav_header_desc"
-        app:srcCompat="@drawable/wechat_img12" />
+        app:srcCompat="@drawable/msc_cs_logo_dark_bg" />
 
     <TextView
         android:layout_width="match_parent"

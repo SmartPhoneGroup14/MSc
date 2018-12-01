@@ -13,7 +13,6 @@ import android.widget.ExpandableListView;
 
 import com.hku.msc.fragment.About.FragmentAbout;
 import com.hku.msc.fragment.About.FragmentFaculty;
-import com.hku.msc.fragment.About.FragmentMessage;
 import com.hku.msc.fragment.BasicInfo.FragmentFees;
 import com.hku.msc.fragment.BasicInfo.FragmentSchedule;
 import com.hku.msc.fragment.BasicInfo.FragmentOverview;
@@ -36,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     //About页
     private FragmentAbout fragmentAbout;
     private FragmentFaculty fragmentFaculty;
-    private FragmentMessage fragmentMessage;
     //Basic Info 页
     private FragmentOverview fragmentOverview;
     private FragmentSchedule fragmentSchedule;
@@ -261,7 +259,6 @@ public class MainActivity extends AppCompatActivity {
 
         childModelsList = new ArrayList<>();
         childModelsList.add(new MenuModel("Faculty", false, false));
-        childModelsList.add(new MenuModel("Message fom Programme Director", false, false));
         childModelsList.add(new MenuModel("About HKU", false, false));
         if (menuModel.hasChildren) {
             childList.put(menuModel, childModelsList);
@@ -381,12 +378,6 @@ public class MainActivity extends AppCompatActivity {
                                 fragmentFaculty = new FragmentFaculty();
                             }
                             switchFragment(fragmentFaculty);
-                            break;
-                        case "Message fom Programme Director":
-                            if (fragmentMessage == null) {
-                                fragmentMessage = new FragmentMessage();
-                            }
-                            switchFragment(fragmentMessage);
                             break;
                         case "About HKU":
                             if (fragmentAbout == null) {
