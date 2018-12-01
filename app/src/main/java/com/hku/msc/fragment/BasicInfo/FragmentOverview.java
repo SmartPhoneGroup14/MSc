@@ -112,7 +112,7 @@ public class FragmentOverview extends Fragment {
         pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
-            public void onPageSelected(int index) {
+            public void onAPageSelected(int index) {
                 for (int i = 0; i < tvs.size(); i++) {
                     if (i == index) {
                         tvs.get(i).setTextColor(Color.BLUE);
